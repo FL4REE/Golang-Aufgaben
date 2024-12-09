@@ -12,7 +12,9 @@ type Function func()
 var functions = map[string]Function{
 	"hello":   hello,   // Verknüpft den Namen "hello" mit der Funktion hello
 	"goodbye": goodbye, // Verknüpft den Namen "goodbye" mit der Funktion goodbye
-	"name":    name,    // Verknüpft den Namen "name" mit der Funktion name
+	"input":   input,   // Verknüpft den Namen "name" mit der Funktion input
+	"zahl":    zahl,    // Verknüpft den Namen "name" mit der Funktion zahl
+
 }
 
 // Definiert die Funktion hello, die "Hello, World!" ausgibt
@@ -25,7 +27,7 @@ func goodbye() {
 	fmt.Println("Goodbye, World!")
 }
 
-func name() {
+func input() {
 	var name string // Deklariert eine Variable, um den Namen des Benutzers zu speichern
 
 	// Fordert den Benutzer auf, seinen Namen einzugeben
@@ -34,6 +36,21 @@ func name() {
 
 	// Begrüßt den Benutzer mit seinem Namen
 	fmt.Printf("Hallo, %s!\n", name) // Gibt eine Begrüßungsnachricht aus
+}
+
+func zahl() {
+	var number int // Deklariert eine Variable, um die eingegebene Zahl zu speichern
+
+	// Fordert den Benutzer auf, eine Zahl einzugeben
+	fmt.Print("Bitte geben Sie eine Zahl ein: ")
+	fmt.Scanln(&number) // Liest die Eingabe des Benutzers und speichert sie in der Variable number
+
+	// Überprüft, ob die Zahl zwischen 1 und 100 liegt
+	if number >= 1 && number <= 100 {
+		fmt.Println("Die Zahl liegt zwischen 1 und 100.") // Gibt eine Bestätigung aus
+	} else {
+		fmt.Println("Die Zahl liegt nicht zwischen 1 und 100.") // Gibt eine Fehlermeldung aus
+	}
 }
 
 // Die Hauptfunktion des Programms
