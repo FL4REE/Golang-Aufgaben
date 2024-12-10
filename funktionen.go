@@ -56,12 +56,14 @@ func zahl() {
 
 func random(min int, max int) int {
 	return rand.Intn(max-min) + min
+	// Generiert eine zufällige Ganzzahl im Bereich von min (inklusive) bis max (exklusive).
+	// rand.Intn(max-min) erzeugt eine Zufallszahl zwischen 0 und (max-min-1).
+	// Durch das Hinzufügen von min wird der Bereich auf [min, max) verschoben.
 }
 
-func wuerfel() {
-	//rand.Seed(time.Now().UnixNano()) //deprecated Funktion
-	randomNum := random(1, 7)
-	fmt.Printf("Random number: %d\n", randomNum)
+func wuerfel() { //rand.Seed(time.Now().UnixNano()) // deprecated Funktion
+	randomNum := random(1, 7)                    // Ruft die Funktion random auf, um eine zufällige Zahl zwischen 1 und 6 (einschließlich 1 und 6) zu generieren
+	fmt.Printf("Random number: %d\n", randomNum) // Gibt die generierte Zufallszahl in der Konsole aus
 }
 
 // Die Hauptfunktion des Programms
