@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt" // Importiert das fmt-Paket für die Ein- und Ausgabe
-	"os"  // Importiert das os-Paket für den Zugriff auf Betriebssystemfunktionen
+	"math/rand"
+	"os" // Importiert das os-Paket für den Zugriff auf Betriebssystemfunktionen
 )
 
 // Definiert einen Typ Function, der eine Funktion ohne Parameter und Rückgabewert darstellt
@@ -14,7 +15,7 @@ var functions = map[string]Function{
 	"goodbye": goodbye, // Verknüpft den Namen "goodbye" mit der Funktion goodbye
 	"input":   input,   // Verknüpft den Namen "name" mit der Funktion input
 	"zahl":    zahl,    // Verknüpft den Namen "name" mit der Funktion zahl
-
+	"wuerfel": wuerfel, // Verknüpft den Namen "name" mit der Funktion wuerfel
 }
 
 // Definiert die Funktion hello, die "Hello, World!" ausgibt
@@ -51,6 +52,16 @@ func zahl() {
 	} else {
 		fmt.Println("Die Zahl liegt nicht zwischen 1 und 100.") // Gibt eine Fehlermeldung aus
 	}
+}
+
+func random(min int, max int) int {
+	return rand.Intn(max-min) + min
+}
+
+func wuerfel() {
+	//rand.Seed(time.Now().UnixNano()) //deprecated Funktion
+	randomNum := random(1, 7)
+	fmt.Printf("Random number: %d\n", randomNum)
 }
 
 // Die Hauptfunktion des Programms
